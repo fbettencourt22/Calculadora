@@ -40,9 +40,9 @@ if __name__ == "__main__":
             resultado = calculadora(num1, num2, operador)
             
             if math.isnan(resultado):
-                print("\nOperador inválido! Tente novamente.")
+                print("\n Operador inválido! Tente novamente.")
             else:
-                print(f"\nResultado: {num1} {operador} {num2} = {resultado:.2f}")
+                print(f"\n Resultado: {num1} {operador} {num2} = {resultado:.2f}")
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
@@ -55,3 +55,4 @@ if __name__ == "__main__":
         continuar = input("\nDeseja realizar outra operação? (s/n): ").strip().lower()
         if continuar != 's':
             print('\nVolte sempre!\n')
+            break
