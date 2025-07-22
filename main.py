@@ -1,5 +1,6 @@
 import os
 import time
+import math
 
 def calculadora(num1: float, num2: float, operador: str) -> float:
     """
@@ -32,7 +33,16 @@ if __name__ == "__main__":
         try:
             print('Calculadora')
             print('----------------------------------\n')
+            num1 = float(input("Digite o primeiro número: "))
+            operador = input("Digite o operador (+, -, *, /, ^): ").strip()
+            num2 = float(input("Digite o segundo número: "))
 
+            resultado = calculadora(num1, num2, operador)
+            
+            if math.isnan(resultado):
+                print("\nOperador inválido! Tente novamente.")
+            else:
+                print(f"\nResultado: {num1} {operador} {num2} = {resultado:.2f}")
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
@@ -41,5 +51,7 @@ if __name__ == "__main__":
         except ZeroDivisionError:
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
-
-    print('\nVolte sempre!\n')
+        
+        continuar = input("\nDeseja realizar outra operação? (s/n): ").strip().lower()
+        if continuar != 's':
+            print('\nVolte sempre!\n')
